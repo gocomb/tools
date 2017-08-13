@@ -72,3 +72,21 @@ func GetErr() error {
 	g := msgQ.GetErrMQ()
 	return g.FetchErr()
 }
+
+//自定义方法
+func (p *CheckErr) Def(arg func(...interface{})) (func(...interface{})) {
+	temp := (p.val).([]interface{})
+	for _, val := range temp {
+		if val != nil {
+			if strings.Contains(reflect.TypeOf(val).String(), "error") {
+				return arg
+			}
+		}
+	}
+	return voidFun
+}
+
+//空函数
+func voidFun(void ...interface{}) {
+	void = nil
+}
