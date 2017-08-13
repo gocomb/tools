@@ -5,6 +5,7 @@ import (
 	"reflect"
 	"strings"
 	"time"
+
 	"github.com/gocomb/tools/checkerr/queue"
 )
 

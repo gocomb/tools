@@ -6,3 +6,38 @@ inteface slice, when found the error types, triggering error handling
 类型，当发现error类型时，触发错误处理机制
 ## todo
 加入网络通知模块
+## 使用
+安装
+``````
+go get -u github.com/gocomb/tools
+import "github.com/gocomb/tools/checkerr"
+
+``````
+代理函数输出
+````
+o := checkerr.Check(func() (out string, err error) {
+		out = "hello world"
+		err = errors.New("hello error")
+		return
+	}())
+````
+打印错误
+````
+out:=o.Do("print")
+````
+查看函数返回值
+````
+fmt.Println(out[0])
+````
+painc错误
+````
+o.Do("painc")
+````
+压入错误消息队列
+````
+o.Do("push")
+````
+从队列中取出一个错误
+````
+checkerr.GetErr()
+````
