@@ -25,6 +25,10 @@ o := checkerr.Check(func() (out string, err error) {
 ````
 out:=o.Do("print")
 ````
+查看函数返回值
+````
+fmt.Println(out[0])
+````
 painc错误
 ````
 o.Do("painc")
