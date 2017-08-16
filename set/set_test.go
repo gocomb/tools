@@ -43,4 +43,16 @@ func TestHashSet(t *testing.T){
 	s.Clear()
 
 	t.Log(s)
+
+	s3 := NewSet()
+	stru := struct {
+		Name string
+		Value string
+	}{
+		Name:"item1",
+		Value:"value1",
+	}
+	s3.Insert(stru)
+
+	t.Log(s3)
 }
